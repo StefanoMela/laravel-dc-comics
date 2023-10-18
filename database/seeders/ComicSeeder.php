@@ -29,7 +29,7 @@ class ComicSeeder extends Seeder
             $comic->series = $_comic['series'];
             $comic->sale_date = $_comic['sale_date'];
             $comic->type = $_comic['type'];
-    
+
             $comic->save();
 
 
