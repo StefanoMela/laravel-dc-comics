@@ -12,9 +12,10 @@ class Comic extends Model
     protected $fillable = 
     [
     'title',
-    'description',
-    'issue_number',
-    'release_date',
-    'price'
+    'series',
+    'sale_date',
+    'type',
+    'price',
+    'description'
     ]; 
 }

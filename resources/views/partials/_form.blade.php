@@ -17,10 +17,10 @@
             <label for="description" class="form-label">Descrizione</label>
             <input type="text" class="form-control" name="description" id="description">
         </div>
-        <label for="price" name="price" id="price" class="form-label">Prezzo</label>
+        <label for="price" class="form-label">Prezzo</label>
         <div class="input-group w-50">
             <span class="input-group-text">$</span>
-            <input type="text" class="form-control">
+            <input type="text" name="price" id="price" class="form-control">
             <span class="input-group-text">.00</span>
         </div>
         <button class="btn btn-primary">Salva</button>
