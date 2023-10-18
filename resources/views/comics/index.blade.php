@@ -13,6 +13,7 @@
         <p class="card-text">{{ $comic->type }}</p>
         <p class="card-text">{{ $comic->price }}</p>
         <p class="card-text">{{ $comic->description }}</p>
+        <a class="btn btn-primary" href="{{route('comics.show', $comic)}}">Dettagli</a>
       </div>
     </div>
     @endforeach
