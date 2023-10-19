@@ -15,6 +15,12 @@
         <p class="card-text">{{ $comic->price }}</p>
         <p class="card-text">{{ $comic->description }}</p>
         <a class="btn btn-primary" href="{{route('comics.show', $comic)}}">Dettagli</a>
+        <a class="btn btn-warning" href="{{route('comics.edit', $comic)}}">Modifica</a>
+        <form action="{{route('comics.destroy', $comic)}}" method="POST" class="my-1">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger">Elimina</button>
+        </form>
       </div>
     </div>
     @endforeach
