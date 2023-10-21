@@ -47,7 +47,10 @@ class ComicController extends Controller
         $comic->fill($data);
         $comic->save();
 
-        return redirect()->route('comics.show', $comic);
+        return redirect()
+        ->route('comics.show', $comic)
+        ->with('message_type', 'success')
+        ->with('message', 'Fumetto creato con successo');
     
     }
 
@@ -85,7 +88,10 @@ class ComicController extends Controller
         $data = $request->validated();
 
         $comic->update($data);
-        return redirect()->route('comics.show', $comic);
+        return redirect()
+        ->route('comics.show', $comic)
+        ->with('message_type', 'success')
+        ->with('message', 'Fumetto modificato con successo');
 
     }
 
@@ -98,6 +104,9 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('comics.index');
+        return redirect()
+        ->route('comics.index')
+        ->with('message_type', 'danger')
+        ->with('message', 'Fumetto eliminato con successo');
     }
 }
