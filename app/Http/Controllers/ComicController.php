@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Comic;
+
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -16,7 +18,7 @@ class ComicController extends Controller
     public function index()
     {
        $title = 'Our Comics';
-       $comics = Comic::all();
+       $comics = Comic::paginate(10);
 
        return view('comics.index', compact('title', 'comics'));
     }
@@ -37,9 +39,9 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $comic = new Comic();
         $comic->fill($data);
@@ -78,9 +80,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $data = $request->all();
+        $data = $request->validated();
+
         $comic->update($data);
         return redirect()->route('comics.show', $comic);
 

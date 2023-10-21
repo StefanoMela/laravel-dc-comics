@@ -20,5 +20,6 @@
       </div>
     </div>
     @endforeach
+    {{$comics->links('pagination::bootstrap-5')}}
   </section>
 @endsection
